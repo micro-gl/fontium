@@ -8,7 +8,7 @@ project contains two components
 
 install **fontiumlib** and **cli** with ***CMake***
 ```bash
-$ cd path/to/microgl
+$ cd path/to/fontium
 $ mkdir cmake-build-release
 $ cd cmake-build-release
 $ cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -63,7 +63,7 @@ the generated image is `png` format and the following data formats can be select
 
 ## fontium lib guide
 you can use the lib as follows
-```c++
+```cpp
 #include <fontium/Fontium.h>
 
 using namespace fontium;
@@ -93,7 +93,7 @@ bitmap_font bm_font = Fontium::create(
 ```
 
 to export your `bitmap_font` result into another format, follow
-```c++
+```cpp
 #include <fontium/Fontium.h>
 #include <fontium/ExportFactory.h>
 
@@ -130,7 +130,7 @@ $ cd cmake_build
 $ cmake .. -DCMAKE_BUILD_TYPE=Release
 $ cmake --build . --target fontium-cli
 $ cd ../bin
-$ ./fontium-cli -h
+$ ./fontium -h
 ```
 
 ```text
