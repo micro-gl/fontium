@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ft2build.h>
-#include FT_FREETYPE_H"freetype/freetype.h"
+#include FT_FREETYPE_H
 
 #include <fontium/common_types.h>
 #include <fontium/FontRendererResult.h>

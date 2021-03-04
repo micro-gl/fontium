@@ -27,10 +27,6 @@ target_link_libraries(fontium freetype)
 target_include_directories(fontium
         PUBLIC
         ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(fontium
-        PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-        ${PROJECT_SOURCE_DIR}/libs/freetype-2.10.0/include)
 
 # fontium cli target
 
@@ -45,7 +41,7 @@ target_include_directories(fontium-cli
         PRIVATE
         ${PROJECT_SOURCE_DIR}/cli/include
         ${PROJECT_SOURCE_DIR}/libs/lodepng)
-
+set_target_properties(fontium-cli PROPERTIES OUTPUT_NAME "fontium")
 add_custom_command(TARGET fontium-cli POST_BUILD COMMAND
         ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/assets
         $<TARGET_FILE_DIR:fontium-cli>/assets)
