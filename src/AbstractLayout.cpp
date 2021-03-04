@@ -1,4 +1,4 @@
-#include "AbstractLayout.h"
+#include <fontium/AbstractLayout.h>
 #include <fontium/LayoutConfig.h>
 
 namespace fontium {

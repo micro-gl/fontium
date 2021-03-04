@@ -1,4 +1,4 @@
-#include "boxlayouter.h"
+#include <fontium/layouters/boxlayouter.h>
 
 #include <cmath>
 

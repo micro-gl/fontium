@@ -1,4 +1,4 @@
-#include "utils.h"
+#include <fontium/utils.h>
 
 std::u32string utf_8_to_32(const std::string &val) {
     std::wstring_convert<codecvt_utf8<char32_t>, char32_t> utf32conv;

@@ -1,5 +1,5 @@
-#include "bmfontexporter.h"
-#include "src/FontConfig.h"
+#include <fontium/exporter/bmfontexporter.h>
+#include <fontium/FontConfig.h>
 
 BMFontExporter::BMFontExporter(QObject *parent) :
     AbstractExporter(parent)

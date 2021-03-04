@@ -1,4 +1,4 @@
-#include "linelayouter.h"
+#include <fontium/layouters/linelayouter.h>
 
 namespace fontium {
     void LineLayouter::internal_layout(const vector<LayoutChar> &chars) {

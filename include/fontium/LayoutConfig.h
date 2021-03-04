@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common_types.h"
+#include <fontium/common_types.h>
 
 namespace fontium {
 

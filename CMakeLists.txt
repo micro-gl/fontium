@@ -1,19 +1,15 @@
 cmake_minimum_required(VERSION 3.12)
-project(fontium)
+project(fontium-project)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-set(CMAKE_CXX_FLAGS_RELEASE "-fno-rtti -fstrict-aliasing -O3 -s -flto -Wstrict-aliasing -fno-math-errno -ffast-math -fno-threadsafe-statics -Wno-unused-parameter")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-add_subdirectory(libs/freetype-2.10.0)
-include_directories("${PROJECT_SOURCE_DIR}")
-include_directories("${PROJECT_SOURCE_DIR}/src/")
-include_directories("${PROJECT_SOURCE_DIR}/libs/lodepng")
-include_directories("/libs/freetype-2.10.0/include")
+# add freetype v2
+add_subdirectory(libs/freetype-2.10.0 EXCLUDE_FROM_ALL)
 
+# fontium lib config and target
 set(SOURCES_LIB
         src/Fontium.cpp
         src/utils.cpp
@@ -25,26 +21,40 @@ set(SOURCES_LIB
         src/layouters/gridlayouter.cpp
         src/layouters/gridlinelayouter.cpp
         src/layouters/linelayouter.cpp
-        libs/lodepng/lodepng.cpp
         )
 
-set(SOURCES_CLI ${SOURCES_LIB}
-        cli/utils.cpp
-        cli/fontium-cli.cpp)
-
-set(TARGET_LIB  ${PROJECT_NAME})
-set(TARGET_CLI ${PROJECT_NAME}-cli)
-message(${TARGET_CLI})
-link_libraries(freetype)
-add_executable(${TARGET_CLI} ${SOURCES_CLI})
-add_library(${TARGET_LIB} ${SOURCES_LIB})
-target_include_directories(${TARGET_LIB}
+add_library(fontium ${SOURCES_LIB})
+target_link_libraries(fontium freetype)
+target_include_directories(fontium
         PUBLIC
         ${PROJECT_SOURCE_DIR}/include)
-target_include_directories(${TARGET_CLI}
+target_include_directories(fontium
         PRIVATE
-        ${PROJECT_SOURCE_DIR}/include)
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/libs/freetype-2.10.0/include)
 
-add_custom_command(TARGET ${TARGET_CLI} POST_BUILD COMMAND
+# fontium cli target
+
+set(SOURCES_CLI
+        cli/utils.cpp
+        cli/fontium-cli.cpp
+        libs/lodepng/lodepng.cpp)
+
+add_executable(fontium-cli ${SOURCES_CLI})
+target_link_libraries(fontium-cli fontium)
+target_include_directories(fontium-cli
+        PRIVATE
+        ${PROJECT_SOURCE_DIR}/cli/include
+        ${PROJECT_SOURCE_DIR}/libs/lodepng)
+
+add_custom_command(TARGET fontium-cli POST_BUILD COMMAND
         ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/assets
-        $<TARGET_FILE_DIR:${TARGET_CLI}>/assets)
+        $<TARGET_FILE_DIR:fontium-cli>/assets)
+
+# install target
+
+install(TARGETS fontium-cli  RUNTIME DESTINATION "bin")
+install(TARGETS fontium  LIBRARY DESTINATION "lib"
+                        ARCHIVE DESTINATION "lib")
+
+install(DIRECTORY include/fontium DESTINATION include)

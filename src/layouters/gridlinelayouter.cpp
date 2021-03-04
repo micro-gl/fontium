@@ -1,4 +1,4 @@
-#include "gridlinelayouter.h"
+#include <fontium/layouters/gridlinelayouter.h>
 
 namespace fontium {
     void GridLineLayouter::calculateSize(int maxW, int maxH, size_t count) {

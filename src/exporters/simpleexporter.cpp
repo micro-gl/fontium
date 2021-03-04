@@ -1,4 +1,4 @@
-#include "simpleexporter.h"
+#include "fontium/exporter/simpleexporter.h"
 #include "src/FontConfig.h"
 
 SimpleExporter::SimpleExporter(QObject *parent) :

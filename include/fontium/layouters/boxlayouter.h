@@ -1,6 +1,6 @@
 #pragma once
 
-#include "src/AbstractLayout.h"
+#include <fontium/AbstractLayout.h>
 
 namespace fontium {
     class BoxLayouter : public AbstractLayout {

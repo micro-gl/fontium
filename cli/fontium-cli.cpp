@@ -2,11 +2,11 @@
 #include <iostream>
 #include <fontium/Fontium.h>
 #include <fontium/ExportFactory.h>
-#include "cli/options.h"
-#include "cli/utils.h"
+#include "options.h"
+#include "utils.h"
 
 using namespace fontium;
-#define DEBUG 1
+#define DEBUG 0
 
 const char* info =R"foo(usage:
   fontium <font path> [options]
@@ -43,7 +43,7 @@ options include:
   -layout.offset_bottom       integer, sets the bottom padding, default 0
 
 * OUTPUT options
-  -output.export              { bmf (Angel Code), c_array }, default to sparrow
+  -output.export              { bmf (Angel Code XML) }, default to bmf
   -output.name                name of the export files, default to <font-name>
 
 * misc

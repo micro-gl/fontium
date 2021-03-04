@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "FontRenderer.h"
+#include <fontium/FontRenderer.h>
 #include <fontium/FontConfig.h>
 
 #include FT_OUTLINE_H

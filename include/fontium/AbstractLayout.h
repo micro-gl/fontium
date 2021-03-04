@@ -1,8 +1,7 @@
 #pragma once
 
-#include "common_types.h"
-#include "LayoutResult.h"
-
+#include <fontium/common_types.h>
+#include <fontium/LayoutResult.h>
 
 namespace fontium {
     struct LayoutConfig;

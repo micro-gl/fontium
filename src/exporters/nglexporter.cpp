@@ -28,7 +28,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include "nglexporter.h"
+#include "fontium/exporter/nglexporter.h"
 #include "src/FontConfig.h"
 #include "../layoutdata.h"
 #include <QDomDocument>

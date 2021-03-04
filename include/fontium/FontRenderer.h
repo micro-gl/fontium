@@ -1,11 +1,11 @@
 #pragma once
 
 #include <ft2build.h>
-#include FT_FREETYPE_H
+#include FT_FREETYPE_H"freetype/freetype.h"
 
-#include "common_types.h"
-#include "FontRendererResult.h"
-#include "utils.h"
+#include <fontium/common_types.h>
+#include <fontium/FontRendererResult.h>
+#include <fontium/utils.h>
 
 namespace fontium {
     struct FontConfig;

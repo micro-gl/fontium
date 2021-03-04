@@ -1,11 +1,10 @@
 #pragma once
 
-#include "common_types.h"
-#include "FontRendererResult.h"
-#include "LayoutResult.h"
-#include "FontConfig.h"
-#include "LayoutConfig.h"
-
+#include <fontium/common_types.h>
+#include <fontium/FontRendererResult.h>
+#include <fontium/LayoutResult.h>
+#include <fontium/FontConfig.h>
+#include <fontium/LayoutConfig.h>
 
 namespace fontium {
     struct LayoutConfig;

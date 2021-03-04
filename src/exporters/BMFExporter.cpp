@@ -1,5 +1,5 @@
 #include <sstream>
-#include "BMFExporter.h"
+#include <fontium/exporter/BMFExporter.h>
 
 namespace fontium {
     str BMFExporter::apply(bitmap_font &data) {

@@ -1,4 +1,4 @@
-#include "boxlayouteroptimized.h"
+#include <fontium/layouters/boxlayouteroptimized.h>
 
 namespace fontium {
     bool BoxLayouterOptimized::SortCharsByHeight(const LayoutChar &a, const LayoutChar &b) {

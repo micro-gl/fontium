@@ -28,7 +28,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include "myguiexporter.h"
+#include "fontium/exporter/myguiexporter.h"
 #include "src/FontConfig.h"
 #include "../layoutdata.h"
 #include "src/LayoutConfig.h"

@@ -28,7 +28,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include "luaexporter.h"
+#include "fontium/exporter/luaexporter.h"
 #include "src/FontConfig.h"
 #include "../layoutdata.h"
 

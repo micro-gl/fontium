@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../src/exporters/BMFExporter.h"
+#include <fontium/exporter/BMFExporter.h>
 
 namespace fontium {
     class ExportFactory {

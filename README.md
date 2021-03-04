@@ -1,4 +1,14 @@
 # Fontium lib & Fontium-CLI
+
+install lib and cli with **CMake**
+```bash
+$ cd path/to/microgl
+$ mkdir cmake-build-release
+$ cd cmake-build-release
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
+$ cmake --build . --target install
+```
+
 project contains two components  
 - `fontium` is a c++ library, that creates bitmap fonts with custom layout algorithms.  
 it also has built-in exporters to other formats as strings so you can embed them.
@@ -86,7 +96,7 @@ mkdir cmake_build
 cd cmake_build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . --target fontium
-// libfontium file should be in your folder
+// libfontium.a file should be in your folder
 
 ```
 

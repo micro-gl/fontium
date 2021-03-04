@@ -28,7 +28,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include "divoexporter.h"
+#include "fontium/exporter/divoexporter.h"
 #include "src/FontConfig.h"
 #include <QtXml>
 

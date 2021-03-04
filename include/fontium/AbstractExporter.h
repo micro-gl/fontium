@@ -11,8 +11,6 @@ namespace fontium {
         explicit AbstractExporter() = default;
         virtual ~AbstractExporter()=default;
 
-        const str getErrorString() const { return "m_error_string"; }
-
         virtual str apply(bitmap_font &data) = 0;
         virtual str fileExtension() = 0;
         virtual str tag() = 0;

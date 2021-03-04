@@ -1,4 +1,4 @@
-#include "jsonfontexporter.h"
+#include "fontium/exporter/jsonfontexporter.h"
 #include "src/FontConfig.h"
 #include <QJsonDocument>
 #include <QJsonObject>

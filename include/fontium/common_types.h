@@ -53,11 +53,11 @@ namespace fontium {
 
         ubyte *data() { return _data; }
 
-        uint width() { return _w; }
+        uint width() const { return _w; }
 
-        uint height() { return _h; }
+        uint height() const { return _h; }
 
-        uint channels() { return _channels; }
+        uint channels() const { return _channels; }
 
         void copy(Img &src, uint x, uint y) {
             bool valid = src.channels() == channels();

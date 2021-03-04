@@ -1,7 +1,7 @@
 #ifndef SIMPLEEXPORTER_H
 #define SIMPLEEXPORTER_H
 
-#include "src/AbstractExporter.h"
+#include <fontium/AbstractExporter.h>
 
 class SimpleExporter : public AbstractExporter
 {

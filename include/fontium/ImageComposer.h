@@ -1,8 +1,8 @@
 #pragma once
 
-#include "common_types.h"
-#include "FontRendererResult.h"
-#include "LayoutResult.h"
+#include <fontium/common_types.h>
+#include <fontium/FontRendererResult.h>
+#include <fontium/LayoutResult.h>
 #include <fontium/LayoutConfig.h>
 
 namespace fontium {

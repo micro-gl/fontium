@@ -1,10 +1,10 @@
 #pragma once
 
-#include <layouters/boxlayouter.h>
-#include <layouters/boxlayouteroptimized.h>
-#include <layouters/gridlayouter.h>
-#include <layouters/gridlinelayouter.h>
-#include <layouters/linelayouter.h>
+#include <fontium/layouters/boxlayouter.h>
+#include <fontium/layouters/boxlayouteroptimized.h>
+#include <fontium/layouters/gridlayouter.h>
+#include <fontium/layouters/gridlinelayouter.h>
+#include <fontium/layouters/linelayouter.h>
 
 namespace fontium {
     class LayoutFactory {

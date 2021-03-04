@@ -1,4 +1,4 @@
-#include "gridlayouter.h"
+#include <fontium/layouters/gridlayouter.h>
 #include <cmath>
 
 namespace fontium {

@@ -1,6 +1,5 @@
-#include "ageexporter.h"
-#include "src/FontConfig.h"
-#include "../layoutdata.h"
+#include <fontium/exporter/ageexporter.h>
+#include <fontium/FontConfig.h>
 
 struct AGEHeader
 {
