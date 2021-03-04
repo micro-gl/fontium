@@ -6,7 +6,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # add freetype v2
-add_subdirectory(libs/freetype-2.10.0 EXCLUDE_FROM_ALL)
+add_subdirectory(libs/freetype-2.10.0)
 
 # fontium lib config and target
 set(SOURCES_LIB
@@ -51,5 +51,4 @@ add_custom_command(TARGET fontium-cli POST_BUILD COMMAND
 install(TARGETS fontium-cli  RUNTIME DESTINATION "bin")
 install(TARGETS fontium  LIBRARY DESTINATION "lib"
                         ARCHIVE DESTINATION "lib")
-
-install(DIRECTORY include/fontium DESTINATION include)
+install(DIRECTORY include/fontium DESTINATION include/fontium)

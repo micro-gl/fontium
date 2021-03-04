@@ -1,6 +1,12 @@
 # Fontium lib & Fontium-CLI
 
-install lib and cli with **CMake**
+project contains two components
+- `fontium` is a c++ library, that creates bitmap fonts with custom layout algorithms.  
+  it also has built-in exporters to other formats as strings so you can embed them.
+- `fontium-cli` is a command line interface, that uses `fontium` to also save the  
+  bitmap fonts image and data with various exporter formats (currently only support BMF XML)
+
+install **fontiumlib** and **cli** with ***CMake***
 ```bash
 $ cd path/to/microgl
 $ mkdir cmake-build-release
@@ -9,12 +15,37 @@ $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ cmake --build . --target install
 ```
 
-project contains two components  
-- `fontium` is a c++ library, that creates bitmap fonts with custom layout algorithms.  
-it also has built-in exporters to other formats as strings so you can embed them.
-- `fontium-cli` is a command line interface, that uses `fontium` to also save the  
-bitmap fonts as custom export formats so you can embed/use them in your application.  
-Under the hood, it uses `freetype 2`  
+suppose it is installed at `<install-folder>`.  
+
+for using the `libfontium`, use:
+```bash
+add these to your Include directories
+-I<install-folder>/include/fontium
+-I<install-folder>/include/freetype2
+
+add this path to your libs directories search
+-L<install-folder>/lib/
+
+add the lib to your link libs
+-lfontium
+```
+
+or you can skip `install` and use the lib from your cmake with
+```cmake
+# CMakeFiles.txt
+
+# this will add the fontium lib target
+add_subdirectory(path/to/fontium)
+
+# then link
+target_link_libraries(your-app fontium)
+```
+
+the `cli` target is installed at `<install-folder>/bin/fontium`, if it is global, then you can   
+use it write away in your shell/terminal
+```bash
+$ fontium -h
+```
 
 ### supported fonts formats
 `TrueType`, `CFF`, `WOFF`, `OpenType`, `SFNT`, `PCF`, `BDF`, `FNT`, `PFR`  
@@ -30,7 +61,7 @@ the generated image is `png` format and the following data formats can be select
 - **C header file** with code
 - many others I found from fontbuilder software and I add when I have time
 
-#### fontium lib
+## fontium lib guide
 you can use the lib as follows
 ```c++
 #include <fontium/Fontium.h>
@@ -89,41 +120,17 @@ delete exporter;
 
 ```
 
-building can be done with `cmake`
-```text
-cd fontium
-mkdir cmake_build
-cd cmake_build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build . --target fontium
-// libfontium.a file should be in your folder
+## fontium cli guide
 
-```
-
-you can also add `fontium` as a sub-directory and link it in your
-cmake project
-```cmake
-cmake_minimum_required(VERSION 3.14)
-project(your_project)
-...
-...
-add_subdirectory(fontium)
-target_link_libraries(${PROJECT_NAME} fontium)
-
-```
-
-#### fontium cli
-run `fontium-cli -h` for help and instructions.  
-build `fontium-cli` with cmake
-```text
-cd fontium
-mkdir cmake_build
-cd cmake_build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build . --target fontium-cli
-cd ../bin
-./fontium-cli -h
-
+build `fontium-cli` target with `cmake` or install (look above for instructions)
+```bash
+$ cd fontium
+$ mkdir cmake_build
+$ cd cmake_build
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ cmake --build . --target fontium-cli
+$ cd ../bin
+$ ./fontium-cli -h
 ```
 
 ```text
