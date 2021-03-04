@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.12)
 project(fontium-project)
 
 set(CMAKE_CXX_STANDARD 11)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 

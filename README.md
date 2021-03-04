@@ -126,4 +126,52 @@ cd ../bin
 
 ```
 
+```text
+usage:
+  fontium <font path> [options]
+
+description:
+  fontium creates bitmap fonts with custom export formats for
+  TrueType, CFF, WOFF, OpenType, SFNT, PCF, FNT, BDF, PFR fonts
+
+options include:
+* FONT options
+  -font.size                  size of font in points, default 14
+  -font.dpi                   dots per inch, usually { 72, 96, 100, 110, 120, 128 }, default 72
+  -font.characters            (string) the characters, by default will use
+                                    " !\"#$%&'()*+,-./0123456789:;<=>?@"
+                                    "ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`"
+                                    "abcdefghijklmnopqrstuvwxyz{|}~"
+  -font.antialiasing          { None, Normal, Light, LCDH, LCDV }, default Normal
+  -font.hinting               { Disable, Default, ForceFreetypeAuto, DisableFreetypeAuto }, default to Default
+  -font.scale_width           percentages, scale horizontally every glyph, default is 100
+  -font.scale_height          percentages, scale vertically every glyph, default is 100
+  -font.char_spacing          integer, add spacing to each glyph advance in export, default 0
+  -font.line_spacing          integer, add height to export's gylph metrics baseline, default 0
+  -font.bold                  [0, 10] - boldness, , default 0
+  -font.italic                [-20, 20] - italicness,  default 0
+  -font.face_index            the face index to load,  default 0
+
+* LAYOUT options
+  -layout.type                { box, box_optimal, grid, gridline, line }, default=box
+  -layout.one_pixel_offset    ( false | true) if set, adds at least one pixel separation between glyphs, default to true
+  -layout.pot_image           ( false | true) if set, create power of 2 image, default false
+  -layout.offset_left         integer, sets the left padding, default 0
+  -layout.offset_top          integer, sets the top padding, default 0
+  -layout.offset_right        integer, sets the right padding, default 0
+  -layout.offset_bottom       integer, sets the bottom padding, default 0
+
+* OUTPUT options
+  -output.export              { bmf (Angel Code XML) }, default to bmf
+  -output.name                name of the export files, default to <font-name>
+
+* misc
+  -h                          show help
+
+example:
+  fontium minecraft.ttf -font.size 12 -output.export bmf -output.name minecraft
+
+Author:
+  Tomer Shalev (tomer.shalev@gmail.com)
+```
 <img src="assets/glyph.png">

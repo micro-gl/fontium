@@ -8,7 +8,8 @@
 using namespace fontium;
 #define DEBUG 0
 
-const char* info =R"foo(usage:
+const char* info =R"foo(
+usage:
   fontium <font path> [options]
 
 description:
