@@ -1,12 +1,12 @@
 # Fontium lib & Fontium-CLI
 
-project contains two components
+Project contains two components
 - `fontium` is a c++ library, that creates bitmap fonts with custom layout algorithms.  
-  it also has built-in exporters to other formats as strings so you can embed them.
+  It also has built-in exporters to other formats as strings so you can embed them.
 - `fontium-cli` is a command line interface, that uses `fontium` to also save the  
   bitmap fonts image and data with various exporter formats (currently only support BMF XML)
 
-install **fontiumlib** and **cli** with ***CMake***
+## Installing  **`fontiumlib`** and **cli**
 ```bash
 $ cd path/to/fontium
 $ mkdir cmake-build-release
@@ -14,55 +14,41 @@ $ cd cmake-build-release
 $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ cmake --build . --target install
 ```
-
-suppose it is installed at `<install-folder>`.  
-
-for using the `libfontium`, use:
-```bash
-add these to your Include directories
--I<install-folder>/include/fontium
--I<install-folder>/include/freetype2
-
-add this path to your libs directories search
--L<install-folder>/lib/
-
-add the lib to your link libs
--lfontium
-```
-
-or you can skip `install` and use the lib from your cmake with
-```cmake
-# CMakeFiles.txt
-
-# this will add the fontium lib target
-add_subdirectory(path/to/fontium)
-
-# then link
-target_link_libraries(your-app fontium)
-```
-
-the `cli` target is installed at `<install-folder>/bin/fontium`, if it is global, then you can   
-use it write away in your shell/terminal
+The `cli` target is installed at `<install-folder>/bin/fontium`, if it is global, then you can   
+use it right away in your shell/terminal
 ```bash
 $ fontium -h
 ```
 
-### supported fonts formats
-`TrueType`, `CFF`, `WOFF`, `OpenType`, `SFNT`, `PCF`, `BDF`, `FNT`, `PFR`  
-- note, for `BDF`, make sure that file has a new line at the end.
+## Consuming `fontiumlib` in your project
+Following options are available:
+1. Copy the project to a sub folder of your project. inside your **`CMakeLists.txt`** add
+```cmake
+add_subdirectory(/path/to/fontium)
+target_link_libraries(your_app fontium)
+```
+2. If you installed **`fontium`** (see above) at your system, you can instead
+```cmake
+find_package(fontium CONFIG REQUIRED)
+target_link_libraries(your_app fontium::fontium)
+```
 
-### supported layout formats
+## supported fonts formats
+`TrueType`, `CFF`, `WOFF`, `OpenType`, `SFNT`, `PCF`, `BDF`, `FNT`, `PFR`  
+- Note, for `BDF`, make sure that file has a new line at the end.
+
+## supported layout formats
 `box`, `line`, `box_optimal`, `grid`, `gridline`
 
-### supported export formats for `fontium-cli`
-this only applies for the `fontium-cli`  
-the generated image is `png` format and the following data formats can be selected  
+## supported export formats for `fontium-cli`
+This only applies for the `fontium-cli`  
+The generated image is `png` format and the following data formats can be selected  
 - **BMF** (Angel-Code's format, which is used in many frameworks)
 - **C header file** with code
-- many others I found from fontbuilder software and I add when I have time
+- Many others I found from fontbuilder software and I add when I have time
 
 ## fontium lib guide
-you can use the lib as follows
+You can use the lib as follows
 ```cpp
 #include <fontium/Fontium.h>
 
@@ -92,7 +78,7 @@ bitmap_font bm_font = Fontium::create(
 
 ```
 
-to export your `bitmap_font` result into another format, follow
+To export your `bitmap_font` result into another format, follow
 ```cpp
 #include <fontium/Fontium.h>
 #include <fontium/ExportFactory.h>
@@ -122,7 +108,7 @@ delete exporter;
 
 ## fontium cli guide
 
-build `fontium-cli` target with `cmake` or install (look above for instructions)
+Build `fontium-cli` target with `cmake` or install (look above for instructions)
 ```bash
 $ cd fontium
 $ mkdir cmake_build
